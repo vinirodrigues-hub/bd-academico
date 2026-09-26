@@ -28,7 +28,7 @@ O banco é composto pelas seguintes tabelas:
 2. Abra o arquivo bd_academico.sql deste repositório
 3. Execute o script completo (clicando no ícone de raio ou Crtl+Shift+Enter)
 4. O banco academico será criado com todas as tabelas e relacionamentos
-5. Execute o inserts_bd_academico.sql
+5. Execute o inserts.sql
 # Autor
 Vinícius Rodrigues
 Estudante de Engenharia de Software - UDF Centro Universitário
