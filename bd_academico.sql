@@ -135,25 +135,25 @@ create table PROFESSOR
 alter table PROFESSOR
 add constraint PK_PROFESSOR primary key (CO_PROFESSOR);
 
-create table PROFESSOR_TURMA_DISC
+create table PROF_TURM_DISC
 (
 	CO_PROFESSOR int not null,
     CO_TURMA char(11) not null,
     CO_DISCIPLINA char(2) not null
 );
 
-alter table PROFESSOR_TURMA_DISC
+alter table PROF_TURM_DISC
 add constraint PK_PROF_TURMA primary key (CO_PROFESSOR, CO_TURMA, CO_DISCIPLINA);
 
-alter table PROFESSOR_TURMA_DISC
+alter table PROF_TURM_DISC
 add constraint REL_PROFESSOR_TURMA foreign key (CO_PROFESSOR)
 references PROFESSOR(CO_PROFESSOR);
 
-alter table PROFESSOR_TURMA_DISC
+alter table PROF_TURM_DISC
 add constraint REL_PROFTURMA foreign key (CO_TURMA)
 references TURMA(CO_TURMA);
 
-alter table PROFESSOR_TURMA_DISC
+alter table PROF_TURM_DISC
 add constraint REL_PROFDISC foreign key (CO_DISCIPLINA)
 references DISCIPLINA(CO_DISCIPLINA);
 
