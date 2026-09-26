@@ -181,11 +181,11 @@ add constraint PK_AVALIACAO primary key (CO_ALUNO, CO_TURMA, CO_DISCIPLINA, CO_P
 
 alter table AVALIACAO 
 add constraint FK_AVALIACAO foreign key (CO_ALUNO)
-references ALUNO(CO_ALUNO);
+references ALUNO_TURMA(CO_ALUNO);
 
 alter table AVALIACAO 
 add constraint REL_AVALIACAO foreign key (CO_TURMA)
-references TURMA(CO_TURMA);
+references ALUNO_TURMA(CO_TURMA);
 
 alter table AVALIACAO 
 add constraint REL_FK_AVALIACAO foreign key (CO_DISCIPLINA)
