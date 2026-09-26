@@ -14,7 +14,7 @@ O banco é composto pelas seguintes tabelas:
 - FREQUENCIA
 - PROVA
 - AVALIACAO
-Relacionamentos principais:
+# Relacionamentos principais:
 - CURSO 1:N TURMA
 - TURMA N:N PROFESSOR/DISCIPLINA via PROF_TURM_DISC
 - ALUNO N:N TURMA via ALUNO_TURMA
