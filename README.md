@@ -30,8 +30,7 @@ O banco é composto pelas seguintes tabelas:
 4. O banco academico será criado com todas as tabelas e relacionamentos
 5. Execute o inserts.sql
 # Autor
-Vinícius Rodrigues
-Estudante de Engenharia de Software - UDF Centro Universitário
+Vinícius Silva Rodrigues - (vinirodrigues-hub) - Estudante de Engenharia de Software - UDF Centro Universitário
 # Licença
 Projeto acadêmico, de uso educacional
 
