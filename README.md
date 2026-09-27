@@ -1,5 +1,5 @@
 # Banco de Dados Acadêmico
-Modelo racional para gestão acadêmica contemplandp turmas, alunos, professores, disciplinas e avalições.
+Modelo racional para gestão acadêmica contemplando turmas, alunos, professores, disciplinas e avalições.
 # Sobre o projeto
 Este repositório contém o script SQL/DDL de um banco de dados acadêmico desenvolvido como parte da disciplina Modelagem de Banco de Dados do curso de Engenharia de Software na UDF Centro Universitário. O modelo conceitual foi fornecido em aula, e a implementação (script DDL) foi feita a partir dele.
 # Modelo de dados
