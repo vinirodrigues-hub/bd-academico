@@ -62,35 +62,6 @@ alter table ALUNO_TURMA
 add constraint FK_ALUNOTURMA foreign key (CO_TURMA)
 references TURMA(CO_TURMA);
 
-create table FORNECEDOR
-(
-	CNPJ_FORNECEDOR integer not null,
-    RAZAO_SOCIAL varchar(40) not null,
-    NOME_FANTASIA varchar(40) not null,
-    END_FORNECEDOR varchar(200) null,
-    EMAIL_FORNECEDOR varchar(50) null,
-    TELEFONE_FORNECEDOR char(15) null,
-    PESSOA_CONTATO char(20) null
-);
-alter table FORNECEDOR
-add constraint PK_FORN primary key (CNPJ_FORNECEDOR);
-
-create table PEDIDO_COMPRA
-(
-	NRO_PEDIDO 	integer not null,
-    CNPJ_FORNECEDOR integer null,
-    DTHORA_EMISSAO datetime not null,
-    FORMA_PGTO varchar(30) null,
-    QTD_PARCELAS integer null,
-    ALIQ_DESCONTO decimal(4,1) null
-);
-alter table PEDIDO_COMPRA
-add constraint PK_COMPRA primary key (NRO_PEDIDO);
-
-alter table PEDIDO_COMPRA
-add constraint REL_PEDIDO_COMPRA foreign key (CNPJ_FORNECEDOR)
-references FORNECEDOR (CNPJ_FORNECEDOR);
-
 create table DISCIPLINA
 (
 	CO_DISCIPLINA char(2) not null,
