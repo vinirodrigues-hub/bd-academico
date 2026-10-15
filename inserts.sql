@@ -486,13 +486,13 @@ SELECT * FROM AVALIACAO;
 
 -- fim do script
 
-
-
-
-
-
-
-
-
-
-
+select * from aluno;
+select * from aluno_turma;
+select * from avaliacao;
+select * from curso;
+select * from disciplina;
+select * from frequencia;
+select * from professor;
+select * from prof_turm_disc;
+select * from prova;
+select * from turma;
