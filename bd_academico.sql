@@ -106,6 +106,8 @@ create table PROFESSOR
 alter table PROFESSOR
 add constraint PK_PROFESSOR primary key (CO_PROFESSOR);
 
+
+
 create table PROF_TURM_DISC
 (
 	CO_PROFESSOR int not null,
@@ -165,6 +167,7 @@ references DISCIPLINA(CO_DISCIPLINA);
 alter table AVALIACAO 
 add constraint FK_REL_AVALIACAO foreign key (CO_PROVA)
 references PROVA(CO_PROVA);
+
 
 
 
