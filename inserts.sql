@@ -496,3 +496,13 @@ select * from professor;
 select * from prof_turm_disc;
 select * from prova;
 select * from turma;
+
+select distinct curso.nome, turma.descricao, turma.ano, turma.periodo from curso, turma
+where curso.co_curso = turma.co_curso;
+
+select distinct turma.descricao, aluno.CO_ALUNO, aluno.NOME from aluno, turma, aluno_turma
+where turma.co_turma = aluno_turma.co_turma and aluno.co_aluno = aluno_turma.co_aluno;
+
+select * from aluno where aluno.sg_sexo like 'M' and aluno.CO_ESTADOCIVIL like 'S';
+select * from aluno where aluno.sg_sexo like 'F' and aluno.CO_ESTADOCIVIL like 'S';
+select aluno.nome from aluno where aluno.nome like 'm%';
