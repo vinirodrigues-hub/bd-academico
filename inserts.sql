@@ -506,3 +506,78 @@ where turma.co_turma = aluno_turma.co_turma and aluno.co_aluno = aluno_turma.co_
 select * from aluno where aluno.sg_sexo like 'M' and aluno.CO_ESTADOCIVIL like 'S';
 select * from aluno where aluno.sg_sexo like 'F' and aluno.CO_ESTADOCIVIL like 'S';
 select aluno.nome from aluno where aluno.nome like 'm%';
+select * from aluno order by 4 asc;
+select * from aluno order by 2 desc;
+
+select distinct aluno.nome, disciplina.no_disciplina, count(frequencia.frequencia) 
+from aluno, disciplina, aluno_turma, frequencia
+where frequencia.frequencia like 'n' and aluno.co_aluno = aluno_turma.CO_ALUNO 
+and  aluno_turma.co_aluno = frequencia.co_aluno
+and aluno_turma.co_turma = frequencia.co_turma
+and frequencia.CO_DISCIPLINA = disciplina.CO_DISCIPLINA
+group by aluno.nome, disciplina.co_disciplina
+order by 3 desc;
+
+select distinct professor.nome, disciplina.NO_DISCIPLINA, turma.DESCRICAO
+from professor, turma, disciplina, prof_turm_disc 
+where professor.CO_PROFESSOR = prof_turm_disc.co_professor and turma.co_turma = prof_turm_disc.CO_TURMA 
+and disciplina.co_disciplina = prof_turm_disc.CO_DISCIPLINA
+order by 1 asc;
+
+select distinct aluno.CO_ALUNO, aluno.NOME, disciplina.CO_DISCIPLINA, 
+prova.DS_PROVA, avaliacao.DT_AVALIACAO, avaliacao.NT_AVALIACAO 
+from aluno, aluno_turma, disciplina, prova, avaliacao 
+where aluno.co_aluno = aluno_turma.CO_ALUNO and aluno_turma.CO_ALUNO = avaliacao.CO_ALUNO
+and aluno_turma.CO_TURMA = avaliacao.CO_TURMA
+and disciplina.CO_DISCIPLINA = avaliacao.CO_DISCIPLINA
+and prova.CO_PROVA = avaliacao.CO_PROVA
+order by 2, 3, 4 asc;
+
+select distinct professor.nome, disciplina.no_disciplina
+from professor, disciplina, prof_turm_disc 
+where professor.CO_PROFESSOR = prof_turm_disc.CO_PROFESSOR
+and disciplina.CO_DISCIPLINA = prof_turm_disc.CO_DISCIPLINA
+and professor.nome like 'a%';
+
+update avaliacao
+set avaliacao.NT_AVALIACAO = 4.5
+where avaliacao.co_aluno = 1
+and avaliacao.CO_DISCIPLINA = 01
+and avaliacao.CO_PROVA = 01
+and dt_avaliacao like '2002-02-05%';
+
+
+select distinct aluno.nome, disciplina.no_disciplina, format(avg(avaliacao.nt_avaliacao), 1)
+from aluno, aluno_turma, disciplina, avaliacao
+where aluno.co_aluno = aluno_turma.CO_ALUNO
+and avaliacao.CO_ALUNO = aluno_turma.CO_ALUNO
+and avaliacao.CO_TURMA = aluno_turma.CO_TURMA
+and disciplina.CO_DISCIPLINA = avaliacao.CO_DISCIPLINA
+group by aluno.nome, disciplina.no_disciplina
+having avg(avaliacao.NT_AVALIACAO) between 7.0 and 9.0
+order by 1,2,3; 
+
+select distinct turma.DESCRICAO, count(aluno.co_aluno)
+from turma, aluno, aluno_turma 
+where turma.co_turma = aluno_turma.co_turma
+and aluno.CO_ALUNO = aluno_turma.co_aluno
+group by turma.DESCRICAO
+order by count(aluno.CO_ALUNO) desc;
+
+select distinct aluno.nome, disciplina.CO_DISCIPLINA, format(avg(avaliacao.nt_avaliacao), 1)
+from aluno, aluno_turma, disciplina, avaliacao
+where aluno.CO_ALUNO = aluno_turma.co_aluno
+and avaliacao.CO_ALUNO = aluno_turma.co_aluno
+and disciplina.CO_DISCIPLINA = avaliacao.CO_DISCIPLINA
+group by aluno.nome, disciplina.CO_DISCIPLINA
+having avg(avaliacao.nt_avaliacao) > (select avg(avaliacao.NT_AVALIACAO) from avaliacao)
+order by 1, 2, 3;
+
+select distinct count(avaliacao.nt_avaliacao) from avaliacao;
+select distinct sum(avaliacao.nt_avaliacao) from avaliacao;
+
+select distinct sum(avaliacao.nt_avaliacao) /
+count(avaliacao.NT_AVALIACAO)
+from avaliacao;
+
+select distinct avg(avaliacao.nt_avaliacao) from avaliacao;
